@@ -18,17 +18,16 @@ class TrieDist:
             if p == len(word):
                 if trie[index][0]:
                     similar[curr] = True
-                if tol > 0:
-                    for c, ind in trie[index][1].items():
-                        recursive_get_similar(p, ind, tol - 1, curr + c, trie)
-            else:
+            if p < len(word):
                 if word[p] in trie[index][1]:
                     recursive_get_similar(p + 1, trie[index][1][word[p]], tol, curr + word[p], trie)
                 if tol > 0:
                     recursive_get_similar(p + 1, index, tol - 1, curr, trie)
                     for c, ind in trie[index][1].items():
-                        recursive_get_similar(p, ind, tol - 1, curr + c, trie)
                         recursive_get_similar(p + 1, ind, tol - 1, curr + c, trie)
+            if tol > 0:
+                for c, ind in trie[index][1].items():
+                    recursive_get_similar(p, ind, tol - 1, curr + c, trie)
 
         recursive_get_similar(0, 0, tolerance, '', self.trie)
         return similar.keys()

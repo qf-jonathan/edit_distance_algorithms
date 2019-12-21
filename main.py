@@ -10,7 +10,7 @@ def main():
     tree_b = IBKTree()
     tree_c = BruteForceDistance()
     tree_d = TrieDist()
-    with open('spanish.txt', encoding='utf8') as spanish:
+    with open('wold_list_spanish.txt', encoding='utf8') as spanish:
         list_words = [wd.rstrip('\n').lower() for wd in spanish.readlines()]
 
         def insert_test(tree, name):
