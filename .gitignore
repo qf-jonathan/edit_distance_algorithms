@@ -4,3 +4,11 @@ venv/
 env/
 .env/
 __pycache__/
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.history
